@@ -6,19 +6,4 @@ settings:
 
 importers:
 
-  .:
-    devDependencies:
-      yaml:
-        specifier: ^2.7.1
-        version: 2.7.1
-
-packages:
-
-  yaml@2.7.1:
-    resolution: {integrity: sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==}
-    engines: {node: '>= 14'}
-    hasBin: true
-
-snapshots:
-
-  yaml@2.7.1: {}
+  .: {}
