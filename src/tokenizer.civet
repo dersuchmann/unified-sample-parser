@@ -1,0 +1,31 @@
+type TokenEvent =
+    type: string
+    enter?: true
+    exit?: true
+    value?: string
+    start: number
+    end: number
+
+export tokenizer := (input: string) ->
+    events: TokenEvent[] := []
+    i .= 0
+
+    while i < input.length
+        char := input[i]
+
+        if char === "("
+            events.push { type: "grouping", enter: true, start: i, end: i + 1 }
+            i++
+        else if char === ")"
+            events.push { type: "grouping", exit: true, start: i, end: i + 1 }
+            i++
+        else if char === "."
+            events.push { type: "dot", value: ".", start: i, end: i + 1 }
+            i++
+        else if /\s/.test char
+            // skip whitespace
+            i++
+        else
+            throw new Error `Unexpected character "${char}" at position ${i}`
+
+    events

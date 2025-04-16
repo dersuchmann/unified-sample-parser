@@ -2,6 +2,8 @@
   "compilerOptions": {
     "lib": ["es2022", "dom"],
     "target": "es2017",
-    "strict": true
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "module": "NodeNext"
   }
 }

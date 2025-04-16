@@ -1,0 +1,10 @@
+import { tokenizer } from "./tokenizer"
+import { Processor } from "unified"
+
+export parser := (this: Processor): void ->
+    this.Parser = (input: string) ->
+        children :=
+            input
+            |> tokenizer
+            |> .map (token) -> ({ ...token, position: { start: token.start, end: token.end } })
+        { type: "root", children }
